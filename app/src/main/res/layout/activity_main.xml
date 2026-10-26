@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎓 Study Assistant Pro"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="مساعدك الجامعي المتكامل"
+        android:textSize="16sp"
+        android:textColor="#212121"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/btnSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="📅 1. جدول المحاضرات والسكاشن"
+        android:backgroundTint="#0D47A1"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnTasks"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="✅ 2. مهام الأسبوع والدراسة"
+        android:backgroundTint="#0D47A1"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnNotes"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="📝 3.ملاحاظاتي"
+        android:backgroundTint="#0D47A1"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"/>
+
+</LinearLayout>

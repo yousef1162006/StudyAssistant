@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="تعديل وعرض الملاحظة"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#0D47A1"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- حقل تعديل نص الملاحظة -->
+        <EditText
+            android:id="@+id/etEditNoteText"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="تعديل تفاصيل الملاحظة..."
+            android:gravity="top|start"
+            android:textColor="#212121"
+            android:textColorHint="#757575"
+            android:background="@android:drawable/editbox_background_normal"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- حاوية عرض الصور المتعددة (لكل صورة زر حذف خاص بها) -->
+        <LinearLayout
+            android:id="@+id/imagesContainerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- زر إضافة صور جديدة -->
+        <Button
+            android:id="@+id/btnChangeImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📷 إضافة صور جديدة للملاحظة"
+            android:backgroundTint="#212121"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- زر حفظ التعديلات -->
+        <Button
+            android:id="@+id/btnSaveEditNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="حفظ التعديلات"
+            android:backgroundTint="#0D47A1"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- زر الحذف الأحمر في أسفل الشاشة -->
+        <Button
+            android:id="@+id/btnDeleteNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="حذف هذه الملاحظة نهائياً"
+            android:backgroundTint="#D32F2F"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+</ScrollView>
