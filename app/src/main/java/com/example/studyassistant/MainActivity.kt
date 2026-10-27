@@ -12,15 +12,15 @@ import org.json.JSONObject
 import java.util.Locale
 
 data class LectureItem(
-    val id: String,        // معرف فريد للحذف الدقيق
-    val type: String,      // محاضرة أو سكشن
-    val instructor: String, // اسم المدرس مع اللقب
-    val subject: String,   // اسم المادة
-    val location: String,  // المكان
-    val day: String,       // اليوم
-    val startTime: String, // وقت البداية
-    val endTime: String,   // وقت النهاية
-    val sortMinutes: Int   // دقائق اليوم للترتيب الزمني
+    val id: String,
+    val type: String,
+    val instructor: String,
+    val subject: String,
+    val location: String,
+    val day: String,
+    val startTime: String,
+    val endTime: String,
+    val sortMinutes: Int
 ) : Comparable<LectureItem> {
     override fun compareTo(other: LectureItem): Int {
         return this.sortMinutes.compareTo(other.sortMinutes)
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         tvEmptyNotice = findViewById(R.id.tvEmptyNotice)
         tvSelectedDayTitle = findViewById(R.id.tvSelectedDayTitle)
 
-        // 2. تغيير التسمية تلقائياً (دكتور / معيد)
+
         groupType.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId == R.id.rbLecture) {
                 etInstructor.hint = "اسم الدكتور"
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // 3. TimePicker يبدأ من 9 صباحاً والدقائق 0
+
         etStartTime.setOnClickListener {
             showTimePicker(isStart = true)
         }
@@ -83,17 +83,17 @@ class MainActivity : AppCompatActivity() {
             showTimePicker(isStart = false)
         }
 
-        // إعداد السبنر
+
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, daysList)
         spinnerDay.adapter = adapter
 
-        // أزرار شريط الأيام السفلي
+
         setupDayButtons()
 
-        // عرض الجدول لليوم الافتراضي
+
         displayScheduleForDay(currentSelectedDay)
 
-        // زر الإضافة
+
         btnAdd.setOnClickListener {
             addLectureItem()
         }

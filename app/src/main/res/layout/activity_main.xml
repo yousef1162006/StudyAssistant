@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- عنوان التطبيق -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="12dp" />
 
-        <!-- ================= نصف الشاشة العلوي: نموذج الإدخال ================= -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 android:textSize="16sp"
                 android:layout_marginBottom="8dp" />
 
-            <!-- اختيار النوع: محاضرة أم سكشن -->
+
             <RadioGroup
                 android:id="@+id/groupType"
                 android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                     android:textColor="#AA66CC" />
             </RadioGroup>
 
-            <!-- اسم المادة -->
+
             <EditText
                 android:id="@+id/etSubject"
                 android:layout_width="match_parent"
@@ -77,7 +77,7 @@
                 android:backgroundTint="#33B5E5"
                 android:layout_marginBottom="6dp" />
 
-            <!-- اسم المدرس (يتغير ديناميكياً) -->
+
             <EditText
                 android:id="@+id/etInstructor"
                 android:layout_width="match_parent"
@@ -89,7 +89,7 @@
                 android:backgroundTint="#33B5E5"
                 android:layout_marginBottom="6dp" />
 
-            <!-- مكان التدريس -->
+
             <EditText
                 android:id="@+id/etLocation"
                 android:layout_width="match_parent"
@@ -101,7 +101,7 @@
                 android:backgroundTint="#33B5E5"
                 android:layout_marginBottom="6dp" />
 
-            <!-- تحديد اليوم -->
+
             <Spinner
                 android:id="@+id/spinnerDay"
                 android:layout_width="match_parent"
@@ -109,7 +109,7 @@
                 android:background="#2A2A2A"
                 android:layout_marginBottom="8dp" />
 
-            <!-- اختيار الوقت -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                     android:backgroundTint="#33B5E5" />
             </LinearLayout>
 
-            <!-- زر الإضافة -->
+
             <Button
                 android:id="@+id/btnAdd"
                 android:layout_width="match_parent"
@@ -155,7 +155,7 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- ================= نصف الشاشة السفلي: شريط الأيام والعرض ================= -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                 android:textSize="15sp"
                 android:layout_marginBottom="6dp" />
 
-            <!-- شريط الأيام الأفقي -->
+
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -238,7 +238,7 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <!-- عنوان اليوم المختار -->
+
             <TextView
                 android:id="@+id/tvSelectedDayTitle"
                 android:layout_width="wrap_content"
@@ -249,7 +249,7 @@
                 android:textSize="14sp"
                 android:layout_marginBottom="6dp" />
 
-            <!-- منطقة عرض المحاضرات مع أزرار الحذف الديناميكية -->
+
             <LinearLayout
                 android:id="@+id/layoutScheduleContainer"
                 android:layout_width="match_parent"
