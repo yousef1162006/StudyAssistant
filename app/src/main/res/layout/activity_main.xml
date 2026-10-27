@@ -1,56 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center"
-    android:background="#FFFFFF">
+    android:background="#0A0A0A"
+    android:padding="12dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="🎓 Study Assistant Pro"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="#0D47A1"
-        android:layout_marginBottom="10dp"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="مساعدك الجامعي المتكامل"
-        android:textSize="16sp"
-        android:textColor="#212121"
-        android:layout_marginBottom="40dp"/>
+        <!-- عنوان التطبيق -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📚 منظم الجدول الدراسي الذكي"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp" />
 
-    <Button
-        android:id="@+id/btnSchedule"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="📅 1. جدول المحاضرات والسكاشن"
-        android:backgroundTint="#0D47A1"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp"/>
+        <!-- ================= نصف الشاشة العلوي: نموذج الإدخال ================= -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1A1A1A"
+            android:padding="12dp"
+            android:layout_marginBottom="14dp">
 
-    <Button
-        android:id="@+id/btnTasks"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="✅ 2. مهام الأسبوع والدراسة"
-        android:backgroundTint="#0D47A1"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="إضافة محاضرة أو سكشن جديد"
+                android:textColor="#33B5E5"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
 
-    <Button
-        android:id="@+id/btnNotes"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="📝 3.ملاحاظاتي"
-        android:backgroundTint="#0D47A1"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"/>
+            <!-- اختيار النوع: محاضرة أم سكشن -->
+            <RadioGroup
+                android:id="@+id/groupType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
 
-</LinearLayout>
+                <RadioButton
+                    android:id="@+id/rbLecture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="محاضرة (دكتور)"
+                    android:textColor="#33B5E5"
+                    android:checked="true"
+                    android:layout_marginEnd="16dp" />
+
+                <RadioButton
+                    android:id="@+id/rbSection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="سكشن (معيد)"
+                    android:textColor="#AA66CC" />
+            </RadioGroup>
+
+            <!-- اسم المادة -->
+            <EditText
+                android:id="@+id/etSubject"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:hint="اسم المادة (مثال: شبكات حاسب)"
+                android:textColorHint="#777777"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:backgroundTint="#33B5E5"
+                android:layout_marginBottom="6dp" />
+
+            <!-- اسم المدرس (يتغير ديناميكياً) -->
+            <EditText
+                android:id="@+id/etInstructor"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:hint="اسم الدكتور"
+                android:textColorHint="#777777"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:backgroundTint="#33B5E5"
+                android:layout_marginBottom="6dp" />
+
+            <!-- مكان التدريس -->
+            <EditText
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:hint="مكان التدريس (مدرج 1 / معامل الحاسب)"
+                android:textColorHint="#777777"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:backgroundTint="#33B5E5"
+                android:layout_marginBottom="6dp" />
+
+            <!-- تحديد اليوم -->
+            <Spinner
+                android:id="@+id/spinnerDay"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="#2A2A2A"
+                android:layout_marginBottom="8dp" />
+
+            <!-- اختيار الوقت -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <EditText
+                    android:id="@+id/etStartTime"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:hint="⏰ وقت البداية"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:textColorHint="#777777"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:backgroundTint="#33B5E5"
+                    android:layout_marginEnd="6dp" />
+
+                <EditText
+                    android:id="@+id/etEndTime"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:hint="⏰ وقت النهاية"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:textColorHint="#777777"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:backgroundTint="#33B5E5" />
+            </LinearLayout>
+
+            <!-- زر الإضافة -->
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="➕ إضافة للجدول وترتيب زمني"
+                android:backgroundTint="#0099CC"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ================= نصف الشاشة السفلي: شريط الأيام والعرض ================= -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅 اختر اليوم لعرض جدولك:"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginBottom="6dp" />
+
+            <!-- شريط الأيام الأفقي -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnSat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#333333"
+                        android:text="السبت"
+                        android:textColor="#FFF" />
+
+                    <Button
+                        android:id="@+id/btnSun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#333333"
+                        android:text="الأحد"
+                        android:textColor="#FFF" />
+
+                    <Button
+                        android:id="@+id/btnMon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#333333"
+                        android:text="الإثنين"
+                        android:textColor="#FFF" />
+
+                    <Button
+                        android:id="@+id/btnTue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#333333"
+                        android:text="الثلاثاء"
+                        android:textColor="#FFF" />
+
+                    <Button
+                        android:id="@+id/btnWed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#333333"
+                        android:text="الأربعاء"
+                        android:textColor="#FFF" />
+
+                    <Button
+                        android:id="@+id/btnThu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:backgroundTint="#333333"
+                        android:text="الخميس"
+                        android:textColor="#FFF" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- عنوان اليوم المختار -->
+            <TextView
+                android:id="@+id/tvSelectedDayTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="جدول يوم: السبت"
+                android:textColor="#FFBB33"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginBottom="6dp" />
+
+            <!-- منطقة عرض المحاضرات مع أزرار الحذف الديناميكية -->
+            <LinearLayout
+                android:id="@+id/layoutScheduleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#141414"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tvEmptyNotice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="لا توجد محاضرات أو سكاشن مسجلة في هذا اليوم."
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
